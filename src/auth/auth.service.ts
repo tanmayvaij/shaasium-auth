@@ -1,9 +1,14 @@
 import { Injectable, NotImplementedException } from '@nestjs/common';
+import { CreateUserDto } from './dto/create-user.dto';
+import { PrismaService } from 'src/prisma/prisma.service';
 
 @Injectable()
 export class AuthService {
-  register() {
-    throw new NotImplementedException('Register route not implemented');
+
+    constructor(private readonly prisma: PrismaService) {}
+
+  register(user: CreateUserDto) {
+    this.prisma.user.create({ data: user })
   }
 
   login() {
