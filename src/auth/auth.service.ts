@@ -1,5 +1,5 @@
 import { Injectable, UnauthorizedException } from '@nestjs/common';
-import { UserDto } from '../dto/user.dto';
+import { User } from '../dto/user.dto';
 import { JwtService } from '@nestjs/jwt';
 import { genSalt, hash, compare } from 'bcrypt';
 import { UserService } from 'src/user/user.service';
@@ -11,7 +11,7 @@ export class AuthService {
     private readonly jwt: JwtService,
   ) {}
 
-  async register(user: UserDto) {
+  async register(user: User) {
     // hashing password
     const password = await hash(user.password, await genSalt(12));
 
@@ -25,7 +25,7 @@ export class AuthService {
     return this.generateToken(createdUser.email);
   }
 
-  async login(user: UserDto) {
+  async login(user: User) {
 
     // checking if user exists
     const userFromDB = await this.userService.findUser(user.email);

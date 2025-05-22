@@ -5,14 +5,14 @@ import {
   NotFoundException,
 } from '@nestjs/common';
 import { PrismaClientKnownRequestError } from '@prisma/client/runtime/library';
-import { UserDto } from 'src/dto/user.dto';
+import { User } from 'src/dto/user.dto';
 import { PrismaService } from 'src/prisma/prisma.service';
 
 @Injectable()
 export class UserService {
   constructor(private readonly prisma: PrismaService) {}
 
-  async createUser(user: UserDto): Promise<UserDto> {
+  async createUser(user: User): Promise<User> {
     try {
       return await this.prisma.user.create({ data: user });
     } catch (err) {
@@ -23,7 +23,7 @@ export class UserService {
     }
   }
 
-  async findUser(email: string): Promise<UserDto> {
+  async findUser(email: string): Promise<User> {
     const user = await this.prisma.user.findUnique({
       where: { email },
     });
