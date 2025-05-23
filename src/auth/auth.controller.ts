@@ -24,7 +24,7 @@ import {
 
 @Controller('auth')
 export class AuthController {
-  constructor(private authService: AuthService) {}
+  constructor(private readonly authService: AuthService) {}
 
   @ApiOperation({ description: 'Registers a new user' })
   @ApiCreatedResponse({
