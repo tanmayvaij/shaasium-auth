@@ -20,4 +20,4 @@ COPY --from=builder /app/dist ./dist
 COPY --from=builder /app/prisma ./prisma
 COPY --from=builder /app/generated ./generated
 
-CMD ["sh", "-c", "yarn prisma migrate deploy && node dist/main"]
+CMD ["sh", "-c", "yarn prisma migrate deploy && yarn start:prod"]
