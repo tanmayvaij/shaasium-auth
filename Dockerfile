@@ -8,7 +8,7 @@ COPY . .
 
 RUN yarn build
 
-FROM node:24-alpine3.21 AS PROD
+FROM node:24-alpine3.21 AS prod
 WORKDIR /app
 
 COPY package.json yarn.lock ./
