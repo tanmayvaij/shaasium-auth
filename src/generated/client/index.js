@@ -123,7 +123,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "D:\\Projects\\shaasium-auth\\generated\\client",
+      "value": "D:\\Projects\\shaasium-auth\\src\\generated\\client",
       "fromEnvVar": null
     },
     "config": {
@@ -141,10 +141,10 @@ const config = {
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
-    "rootEnvPath": "../../.env",
-    "schemaEnvPath": "../../.env"
+    "rootEnvPath": "../../../.env",
+    "schemaEnvPath": "../../../.env"
   },
-  "relativePath": "../../prisma",
+  "relativePath": "../../../prisma",
   "clientVersion": "6.8.2",
   "engineVersion": "2060c79ba17c6bb9f5823312b6f6b7f4a845738e",
   "datasourceNames": [
@@ -160,8 +160,8 @@ const config = {
       }
     }
   },
-  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\n// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?\n// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init\n\ngenerator client {\n  provider = \"prisma-client-js\"\n  output   = \"../generated/client\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel User {\n  email    String @id\n  password String\n}\n",
-  "inlineSchemaHash": "79b68d8e088359f4d603a88e1190fe94d16fbc4ebdface73be278c59dc3b2023",
+  "inlineSchema": "generator client {\n  provider = \"prisma-client-js\"\n  output   = \"../src/generated/client\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel User {\n  email    String @id\n  password String\n}\n",
+  "inlineSchemaHash": "bfc3d1981e1cbb3f7c7040db902339158e708d3c84126c7621f2e33ef781a533",
   "copyEngine": true
 }
 
@@ -170,8 +170,8 @@ const fs = require('fs')
 config.dirname = __dirname
 if (!fs.existsSync(path.join(__dirname, 'schema.prisma'))) {
   const alternativePaths = [
+    "src/generated/client",
     "generated/client",
-    "client",
   ]
   
   const alternativePath = alternativePaths.find((altPath) => {
@@ -201,7 +201,7 @@ Object.assign(exports, Prisma)
 
 // file annotations for bundling tools to include these files
 path.join(__dirname, "query_engine-windows.dll.node");
-path.join(process.cwd(), "generated/client/query_engine-windows.dll.node")
+path.join(process.cwd(), "src/generated/client/query_engine-windows.dll.node")
 // file annotations for bundling tools to include these files
 path.join(__dirname, "schema.prisma");
-path.join(process.cwd(), "generated/client/schema.prisma")
+path.join(process.cwd(), "src/generated/client/schema.prisma")
