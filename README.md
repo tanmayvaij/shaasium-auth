@@ -8,7 +8,7 @@ A scalable and secure authentication microservice built with [NestJS](https://ne
 - 🔐 Password hashing with `bcrypt`
 - 🔑 JWT-based authentication
 - 🌐 RESTful API design
-- 🗃️ Supports PostgreSQL or MongoDB (dynamic at startup)
+- 🗃️ Supports PostgreSQL
 - 📦 Prisma ORM for type-safe database access
 - ✅ Input validation with `class-validator`
 - 📁 Modular code structure using NestJS best practices
@@ -20,7 +20,7 @@ A scalable and secure authentication microservice built with [NestJS](https://ne
 - **Framework**: [NestJS](https://nestjs.com/)
 - **Language**: TypeScript
 - **ORM**: [Prisma](https://www.prisma.io/)
-- **Database**: PostgreSQL / MongoDB (dynamically chosen)
+- **Database**: PostgreSQL
 - **Security**: JWT, bcrypt
 - **Validation**: class-validator, class-transformer
 
@@ -58,11 +58,6 @@ Run Prisma migrations (SQL only):
 ```bash
 npx prisma migrate deploy
 ```
-
-For MongoDB, no need to run this command.
-
-Note:
-If you want to use a different database provider (e.g., PostgreSQL, MySQL, or MongoDB), you must manually update the provider field in your prisma/schema.prisma
 
 ### 5. build the Server
 
